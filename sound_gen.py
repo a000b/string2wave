@@ -6,16 +6,11 @@ https://www.tutorialspoint.com/read-and-write-wav-files-using-python-wave
 import wave
 import os
 
+
 def rd_file(file_name):
     """Wczytuje plik, zwraca bajty"""
     with open(file_name, "r") as f:
-        data = f.readlines()
-        stext = ""
-        for line in data:
-            stext += str(line)
-        strout = str(stext).replace(chr(10) + chr(32), chr(10))
-        if strout[0] == chr(32):
-            strout = strout[1:]
+        strout = f.read()
         bout = bytes(strout, "utf-16")
         return bout
 
@@ -28,7 +23,7 @@ def wr_file(file_name, data):
 
 def create_wave(strumien, fwave_out):
     """Tworzy plik wave z zadanego tekstu"""
-    sample_rate = 8000  # hertz
+    sample_rate = 44100  # hertz
     with wave.open(fwave_out, 'w') as obj:
         obj.setnchannels(2)  # 1 - mono, 2 - stereo
         obj.setsampwidth(2) # ilość bajtów na sample
@@ -50,8 +45,36 @@ def read_wave(fname):
         print("Number of frames", obj.getnframes())
         print("parameters:", obj.getparams())
         frames = obj.readframes(obj.getnframes())
-        fr = frames.decode('utf16')
+        fr = frames.decode("utf16")
         return fr
+
+def wave2file(fname):
+    """Odczytuje dane z pliku wave"""
+    with wave.open(fname, 'r') as obj:
+        frames = obj.readframes(obj.getnframes())
+        return frames
+
+
+def raw2wave(strumien, fwave_out):
+    """Tworzy plik wave z zadanego tekstu"""
+    sample_rate = 8000  # hertz
+    with wave.open(fwave_out, 'w') as obj:
+        obj.setnchannels(2)  # 1 - mono, 2 - stereo
+        obj.setsampwidth(2) # ilość bajtów na sample
+        obj.setframerate(sample_rate)
+        obj.writeframesraw(strumien)
+
+def wr_bfile(file_name, data):
+    """Zapisuje do pliku"""
+    with open(file_name, "wb") as f:
+        f.write(data)
+    return file_name
+
+def rd_bfile(file_name):
+    """Zapisuje do pliku"""
+    with open(file_name, "rb") as f:
+        data = f.read()
+    return data
 
 path = os.getcwd() + "/" #cieżka katalogu bieżącego
 fin = "in.txt" #plik wejściowy z tekstem
@@ -63,3 +86,6 @@ create_wave(rd_file(fin), path + fwave)
 #zapisanie odzyskanego textu do pliku
 wr_file(path + fout, str(read_wave(path + fwave)))
 
+#wczytanie wava z muzyką do pliku tekstowego
+# fw = "a2002011001-e02-8kHz.wav"
+#raw2wave(rd_bfile(wr_bfile(path + fw + ".out", wave2file(path + fw))), "new.wav")
