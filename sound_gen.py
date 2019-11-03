@@ -58,7 +58,7 @@ def wave2file(fname):
 
 
 def raw2wave(strumien, fwave_out):
-    """Tworzy plik wave ze strumienia bajtów""
+    """Tworzy plik wave ze strumienia bajtów"""
     sample_rate = 8000  # hertz
     with wave.open(fwave_out, 'w') as obj:
         obj.setnchannels(2)  # 1 - mono, 2 - stereo
