@@ -83,7 +83,7 @@ fin = "in.txt" #plik wejściowy z tekstem
 fwave = "out.wav" #plik wyjściowy dźwiękowy
 fout = "out.txt" #plik wyjściowy z tekstem
 
-#Utowrzenie wava
+#Utworzenie wava
 create_wave(rd_file(fin), path + fwave)
 #zapisanie odzyskanego textu do pliku
 wr_file(path + fout, str(read_wave(path + fwave)))
