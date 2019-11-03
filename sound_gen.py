@@ -86,6 +86,6 @@ create_wave(rd_file(fin), path + fwave)
 #zapisanie odzyskanego textu do pliku
 wr_file(path + fout, str(read_wave(path + fwave)))
 
-#wczytanie wava z muzyką do pliku tekstowego
-# fw = "a2002011001-e02-8kHz.wav"
+#bonus wczytanie wava z muzyką do pliku binarnego
+# fw = "plik.wav"
 #raw2wave(rd_bfile(wr_bfile(path + fw + ".out", wave2file(path + fw))), "new.wav")
