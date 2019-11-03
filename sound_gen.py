@@ -89,5 +89,6 @@ create_wave(rd_file(fin), path + fwave)
 wr_file(path + fout, str(read_wave(path + fwave)))
 
 #bonus wczytanie wava z muzyką do pliku binarnego
+#natępnie utworznie z pliku binarnego nowego wava
 # fw = "plik.wav"
 #raw2wave(rd_bfile(wr_bfile(path + fw + ".out", wave2file(path + fw))), "new.wav")
