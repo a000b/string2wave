@@ -1,6 +1,8 @@
 """
 https://docs.python.org/3/library/wave.html
 https://www.tutorialspoint.com/read-and-write-wav-files-using-python-wave
+https://machowski2.wordpress.com/
+https://docs.python.org/3/glossary.html#term-bytes-like-object
 
 """
 import wave
