@@ -10,7 +10,7 @@ import os
 
 
 def rd_file(file_name):
-    """Wczytuje plik, zwraca bajty"""
+    """Wczytuje plik tekstowy, zwraca bajty"""
     with open(file_name, "r") as f:
         strout = f.read()
         bout = bytes(strout, "utf-16")
