@@ -38,7 +38,7 @@ def create_wave(strumien, fwave_out):
 
 
 def read_wave(fname):
-    """Odczytuje dane z pliku wave, zwraca zdekodowany tekst"""
+    """Odczytuje dane z pliku wave, zwraca zdekodowany tekst i metadane"""
     with wave.open(fname, 'r') as obj:
         print("Nazwa pliku: ", fname)
         print("Number of channels", obj.getnchannels())
