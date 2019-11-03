@@ -51,14 +51,14 @@ def read_wave(fname):
         return fr
 
 def wave2file(fname):
-    """Odczytuje dane z pliku wave"""
+    """Odczytuje dane z pliku wave zwraca bajty"""
     with wave.open(fname, 'r') as obj:
         frames = obj.readframes(obj.getnframes())
         return frames
 
 
 def raw2wave(strumien, fwave_out):
-    """Tworzy plik wave z zadanego tekstu"""
+    """Tworzy plik wave ze strumienia bajtów""
     sample_rate = 8000  # hertz
     with wave.open(fwave_out, 'w') as obj:
         obj.setnchannels(2)  # 1 - mono, 2 - stereo
@@ -67,13 +67,13 @@ def raw2wave(strumien, fwave_out):
         obj.writeframesraw(strumien)
 
 def wr_bfile(file_name, data):
-    """Zapisuje do pliku"""
+    """Zapisuje do pliku binarnego"""
     with open(file_name, "wb") as f:
         f.write(data)
     return file_name
 
 def rd_bfile(file_name):
-    """Zapisuje do pliku"""
+    """Odczyt pliku binarnego"""
     with open(file_name, "rb") as f:
         data = f.read()
     return data
