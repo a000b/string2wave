@@ -18,7 +18,7 @@ def rd_file(file_name):
 
 
 def wr_file(file_name, data):
-    """Zapisuje do pliku"""
+    """Zapisuje do pliku textowego"""
     with open(file_name, "w") as f:
         f.write(data)
 
